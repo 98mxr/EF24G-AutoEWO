@@ -4,11 +4,11 @@ Automatic electronic warfare officer and SEAD assistant for the **EF-24G Mischie
 
 面向《VTOL VR》电子战机 **EF-24G Mischief** 的自动电子战官与防空压制辅助模组。
 
-Players can subscribe on the Steam Workshop for VTOL VR Mod Loader. This repository is the source. The Workshop item is published with **VTOL VR Mod Uploader** and will be linked here once the public item URL is available.
+Players can subscribe on the Steam Workshop for VTOL VR Mod Loader. This repository is the source.
 
-可在 VTOL VR Mod Loader 的 Steam 创意工坊订阅。本仓库是源码。创意工坊物品通过 **VTOL VR Mod Uploader** 发布；公开页面地址确定后会写在这里。
+可在 VTOL VR Mod Loader 的 Steam 创意工坊订阅。本仓库是源码。
 
-Workshop: https://steamcommunity.com/app/3018410/workshop/
+Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3826227136
 
 ## Credits / 署名
 
@@ -52,9 +52,11 @@ The panel is an IMGUI window on the flat game view. Use the mouse there. The def
 
 **Workshop / 创意工坊**
 
-Subscribe in the Mod Loader workshop, then load the item in VTOL VR Mod Loader.
+Subscribe on the Workshop page, then load the item in VTOL VR Mod Loader.
 
-在 Mod Loader 创意工坊订阅后，于 Mod Loader 中加载。
+在创意工坊页面订阅后，于 Mod Loader 中加载。
+
+https://steamcommunity.com/sharedfiles/filedetails/?id=3826227136
 
 **Release zip / 发行压缩包**
 
