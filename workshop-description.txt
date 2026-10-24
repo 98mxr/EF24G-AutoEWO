@@ -1,0 +1,74 @@
+EF-24G Auto EWO is an automatic electronic warfare officer and SEAD assistant for the EF-24G Mischief.
+
+EF-24G Auto EWO 是《VTOL VR》电子战机 EF-24G Mischief 的自动电子战官与防空压制辅助。
+
+Source code, build instructions, and release binaries:
+源码、编译说明和发行二进制文件：
+https://github.com/98mxr/EF24G-AutoEWO
+
+Credits / 署名: 者也公爵, Grok 4.7, Gemini 4 Argon
+License / 许可证: MIT
+
+The panel is drawn on the flat game window. Default key: F8. Use the mouse. Drag the title bar to move it. Changes apply immediately. Save settings writes the Mod Loader settings file.
+面板画在游戏平面窗口上。默认按键 F8。使用鼠标。拖动标题栏移动窗口。改动立即生效。保存设置会写入 Mod Loader 设置文件。
+
+Jamming mode defaults to OFF. OFF stops jammer automation only.
+干扰模式默认为 OFF。OFF 只停止干扰自动化。
+
+[h1]Operating mode / 工作模式[/h1]
+[list]
+[*][b]OFF[/b] — Do not automate jamming. Jams opened by this mod are released. Manually owned channels stay unchanged. 不自动开关干扰。本模组打开的干扰会被释放。手动通道保持原样。
+[*][b]DEFENSIVE / 自卫[/b] — Stay quiet until a fire-control lock or a radar guiding a missile, then open DRFM on that threat and stop when it is gone. 平时静默。被火控锁定或雷达制导导弹时，对该威胁打开 DRFM，威胁消失后关掉。
+[*][b]OFFENSIVE / 压制[/b] — Assign channels to search, track, and locked emitters. 对搜索、跟踪和锁定辐射源分配通道。
+[/list]
+
+[h1]Target priority / 目标优先级[/h1]
+[list]
+[*][b]SAM 优先[/b] — Ground and armored radars score twice as high. 地面和装甲雷达威胁分乘 2。
+[*][b]空中优先[/b] — Aircraft radars score twice as high. 空中雷达威胁分乘 2。
+[*][b]均衡 / Balanced[/b] — Rank by threat state, range, and signal strength only. 只按威胁等级、距离和信号强度排序。
+[/list]
+
+[h1]Band authorization / 频段授权[/h1]
+The aircraft must also be able to transmit on the band. A disabled band is never assigned.
+载机还必须能在该频段发射。关闭的频段绝不会被分配。
+[list]
+[*][b]允许 Low[/b] — Allow the low band, about 0.1–3. 允许低段，约 0.1–3。
+[*][b]允许 Mid[/b] — Allow the mid band, about 3–8. 允许中段，约 3–8。
+[*][b]允许 High[/b] — Allow the high band, about 8–18. 允许高段，约 8–18。
+[/list]
+
+[h1]Sliders / 滑条[/h1]
+[list]
+[*][b]功率上限 / Power cap[/b] — 50–100%, default 100. Maximum share of each jammer pod's own power. Locked channels consume budget first. 每个吊舱最多使用自身最大功率的这一百分比。已锁定通道先占额度。
+[*][b]电量保护阈值 / Battery safeguard[/b] — 5–80%, default 25. Below this charge, if engine and APU charging cannot cover jammer drain, automatic search jamming stops. Lock and missile channels stay. 低于此电量且充电补不上耗电时，停止搜索干扰。锁定和导弹通道保留。
+[*][b]同频簇夹角 / Cluster angle[/b] — 2–30 degrees, default 8. Same-band targets inside this angle share one channel, aimed near the cluster center. 同频且夹角小于该值的目标共用一条通道，指向簇中心附近。
+[*][b]末端防 HOJ 距离 / Terminal HOJ range[/b] — 400–12000 m, default 2000. A closing hostile radar missile inside this range switches automatic noise to DRFM, or stops it, and releases chaff. 接近中的敌方雷达弹进入此距离时，自动噪声改为 DRFM 或关闭，并抛箔条。
+[*][b]CMS 危险距离 / CMS danger range[/b] — 500–20000 m, default 3500. Chaff for closing radar missiles and flares for infrared missiles inside this range. 此距离内，接近中的雷达弹抛箔条，红外弹抛热焰弹。
+[*][b]CMS 脉冲间隔 / CMS pulse[/b] — 0.1–3 s, default 0.4. Separate timers for chaff and flares. 箔条与热焰弹各自的最短间隔。
+[*][b]发射冷却 / Shot cooldown[/b] — 0.4–15 s, default 2. Minimum gap between full-auto anti-radiation shots. 全自动反辐射两发之间的最短间隔。
+[/list]
+
+[h1]Toggles / 开关[/h1]
+[list]
+[*][b]自动箔条 / 热焰弹 / Auto CMS[/b] — Default on. Dispense at the ranges above. Terminal HOJ chaff still runs while jamming mode is not OFF, even if this is off. 默认开。按上面的距离抛放。干扰模式不是 OFF 时，末端防 HOJ 箔条仍会抛，即使关掉本开关。
+[*][b]TGP 自动轮询并写入 GPS / Auto TGP[/b] — Default off. After about 4 seconds without manual slew, and while the pod is not holding another lock, slew, check line of sight, lock, write GPS group EWO 1, then unlock. 默认关。约 4 秒没有手动转动，且没有锁住其他目标时，转向、检查视线、锁定、写入 GPS 组 EWO 1，然后解锁。
+[*][b]反辐射交接 / Anti-radiation handoff[/b] — Default on. Choose an in-envelope emitter that no friendly anti-radiation missile is already attacking. TSD selection changes only when an anti-radiation weapon is selected, or when full-auto is firing. 默认开。选择进入包线且没有友弹正在攻击的辐射源。只有已选中反辐射弹或正在全自动发射时才改 TSD 目标。
+[*][b]允许全自动发射 / Allow full-auto fire[/b] — Default off. With FULL and the aircraft master arm on, fire one authorized round. 默认关。与 FULL 和飞机主臂同时开启时，打一发已授权的弹。
+[*][b]显示简洁 HUD / Compact HUD[/b] — Default on. While the panel is closed, show mode, battery, jamming, triangulation heading, anti-radiation, and pod status. 默认开。面板关闭时显示模式、电量、干扰、三角定位航向、反辐射和吊舱状态。
+[/list]
+
+[h1]Anti-radiation mode / 反辐射方式[/h1]
+[list]
+[*][b]SEMI / 半自动[/b] — Select the target and tell you when to pull the trigger. The mod does not fire. 选择目标，并在可以扣扳机时提示你。模组不发射。
+[*][b]FULL / 全自动[/b] — Also requires Allow full-auto fire and master arm. Fires one round, then waits for the cooldown. 还需要允许全自动发射和主臂。打一发，然后等待冷却。
+[/list]
+
+[h1]Channels and buttons / 通道与按钮[/h1]
+[list]
+[*][b]通道勾选 / Channel check[/b] — Checked means manual. Automation will not change that channel. The game stopping a jam because the target was lost, left the beam, or the battery failed does not mark it manual. 勾选即手动，自动逻辑不再改该通道。游戏因目标丢失、离开波束或电量停发，不会把通道变成手动。
+[*][b]清除手动锁 / Clear manual locks[/b] — Clear every channel lock. 取消所有通道锁定。
+[*][b]配置 ADM-160 / Configure ADM-160[/b] — Does not fire. Writes MALD 1 toward the densest hostile radar cluster and assigns it to unfired ADM-160 rounds. Selects SAS when the round offers an identity. 不发射。把 MALD 1 写到敌方雷达最密区域，并赋给未发射的 ADM-160。该弹提供型号时选择 SAS。
+[*][b]保存设置 / Save settings[/b] — Write the panel to the Mod Loader settings file. 把面板写入 Mod Loader 设置文件。
+[*][b]F8 / F9 / F10 / Ins / Home[/b] — Choose the panel key. The highlighted button is the current key. 选择面板按键。高亮的是当前按键。
+[/list]

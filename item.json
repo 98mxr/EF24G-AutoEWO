@@ -1,0 +1,16 @@
+{
+  "Title": "EF-24G Auto EWO",
+  "Description": "Automatic EWO and SEAD assistant for the EF-24G. Source: https://github.com/98mxr/EF24G-AutoEWO",
+  "Tags": [ "Mod", "EF-24G" ],
+  "PreviewImageUrl": "",
+  "NumSubscriptions": 0,
+  "PublishFieldId": 0,
+  "MetaData": {
+    "DllName": "EF24GAutoEWO.dll",
+    "AllowLoadOnStart": true,
+    "ShowOnMainList": true,
+    "DllHash": ""
+  },
+  "DependenciesIds": [],
+  "IsInstalled": true
+}
